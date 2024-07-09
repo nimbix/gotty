@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"sync/atomic"
+	"os"
 
 	"github.com/gorilla/websocket"
 	"github.com/pkg/errors"
@@ -47,7 +48,9 @@ func (server *Server) generateHandleWS(ctx context.Context, cancel context.Cance
 			)
 
 			if (server.options.Once) || (closeReason == "local command") {
-				cancel()
+				if os.Getenv("JARVICE_GOTTY_DISABLE_AUTO_EXIT") != "True" {
+					cancel()
+				}
 			}
 		}()
 
