@@ -3,3 +3,5 @@ bindata
 builds
 js/node_modules/*
 .idea
+# Added by goreleaser init:
+dist/
