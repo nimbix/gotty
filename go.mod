@@ -1,6 +1,6 @@
 module github.com/nimbix/gotty
 
-go 1.22.11
+go 1.23
 
 require (
 	github.com/NYTimes/gziphandler v1.1.1
